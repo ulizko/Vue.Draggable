@@ -272,8 +272,11 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
         },
         spliceList: function spliceList() {
           var _arguments = arguments;
-
+          var _this = this;
           var spliceList = function spliceList(list) {
+            if(_arguments[2]){
+              _arguments[2] = _this.deepClone(_arguments[2]);
+            }
             return list.splice.apply(list, _arguments);
           };
           this.alterList(spliceList);
